@@ -13,6 +13,10 @@ namespace DazzyCart.Controllers
         {
             return View();
         }
+        public ActionResult ProductDetails()
+        {
+            return View();
+        }
         public ActionResult Product()
         {
             return View();
