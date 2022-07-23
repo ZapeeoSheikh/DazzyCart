@@ -1,7 +1,38 @@
-﻿
+﻿@using DazzyCart.Models
+
 @{
     ViewBag.Title = "Form";
 }
 
-<h2>Form</h2>
+<div class="panel panel-primary col-lg-push-4 col-lg-4">
+    <h2 class="panel-heading">Add Products </h2>
+    <div class="panel-body ">
+        <form action="/Home/Form" method="post">
+            <input type="hidden" name="Id"  />
+            <div class="form-group">
+                <label for="name">Product Name :</label>
+                <input type="text" class="form-control" id="name" name="Name">
+            </div>
+            
+            <div class="form-group">
+                <label for="desc">Product Description :</label>
+                <input type="text" class="form-control" id="desc" name="Description">
+            </div>
+            <div class="form-group">
+                <label for="url">OLX URL :</label>
+                <input type="text" class="form-control" id="url" name="Url">
+            </div>
+            <div class="form-group">
+                <label for="price">Product Price :</label>
+                <input type="number" class="form-control" id="price" name="Price">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Product Image :</label>
+                <input type="file" class="form-control" accept="image/png , image/gif, image/jpeg" id="pwd" name="file">
+            </div>
+            
 
+            <button type="submit" class="btn btn-success">Add Now</button>
+        </form>
+    </div>
+</div>

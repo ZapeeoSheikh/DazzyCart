@@ -67,7 +67,8 @@ namespace DazzyCart.Controllers
         [HttpGet]
         public ActionResult Form()
         {
-            return View();
+            List<Products> products = db.products.ToList();
+            return View(products);
         }
         [HttpPost]
         public ActionResult Form(Products products, HttpPostedFileBase file)
