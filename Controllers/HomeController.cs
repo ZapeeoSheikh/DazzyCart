@@ -13,11 +13,13 @@ namespace DazzyCart.Controllers
         private DazzyCartContext db = new DazzyCartContext();
         public ActionResult Index()
         {
+            List<Products> products = new List<Products>();
             return View();
         }
-        public ActionResult ProductDetails()
+        public ActionResult ProductDetails(int Id)
         {
-            return View();
+            Products products = db.products.Where(x => x.Id == Id).FirstOrDefault();
+            return View(products);
         }
         [HttpGet]
         public ActionResult LoginPage()
@@ -62,11 +64,21 @@ namespace DazzyCart.Controllers
             Response.Cookies.Add(myCookie);
             return Redirect("/Home/Login");
         }
+        [HttpGet]
         public ActionResult Form()
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult Form(Products products, HttpPostedFileBase file)
+        {
+            string filename = DateTime.UtcNow.Ticks + ".jpg";
+            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            products.Image = filename;
+            db.products.Add(products);
+            db.SaveChanges();
+            return Redirect("/Home/Index");
+        }
 
     }
 }
