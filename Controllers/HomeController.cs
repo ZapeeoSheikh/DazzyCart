@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DazzyCart.Models;
 
 namespace DazzyCart.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
+        private DazzyCartContext db = new DazzyCartContext();
         public ActionResult Index()
         {
             return View();
@@ -17,13 +19,48 @@ namespace DazzyCart.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult LoginPage()
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LoginPage(User user)
+        {
+            User dbuser = db.user.Where(m => m.Email == user.Email && m.Password == user.Password).FirstOrDefault();
+            if (dbuser == null)
+            {
+                ViewBag.Error = "Your email or password is incorrect";
+                return View();
+            }
+            HttpCookie mycookie = new HttpCookie("userCookie");
+            mycookie.Value = dbuser.AccessToken;
+            mycookie.Expires = DateTime.UtcNow.AddDays(5).AddHours(5);
+            Response.Cookies.Remove("userCookie");
+            Response.Cookies.Add(mycookie);
+            return Redirect("/Home/Form");
+        }
+        [HttpGet]
         public ActionResult Signup()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Signup(User user)
+        {
+            ViewBag.Users = db.user.ToList();
+
+            //user.RoleId = 2;
+            user.AccessToken = DateTime.UtcNow.Ticks.ToString();
+            db.user.Add(user);
+            db.SaveChanges();
+
+            HttpCookie myCookie = new HttpCookie("userCookie");
+            myCookie.Value = user.AccessToken;
+            myCookie.Expires = DateTime.UtcNow.AddDays(5).AddHours(5);
+            Response.Cookies.Remove("userCookie");
+            Response.Cookies.Add(myCookie);
+            return Redirect("/Home/Login");
         }
         public ActionResult Form()
         {

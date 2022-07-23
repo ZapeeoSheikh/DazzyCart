@@ -20,8 +20,9 @@
                 <a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" name="email" style="margin-top: 5px"/>
-            <input type="password" placeholder="Password" name="password" />
+            <input type="hidden" name="Id"/>
+            <input type="email" placeholder="Email" name="Email" style="margin-top: 5px"/>
+            <input type="password" placeholder="Password" name="Password" />
             @if (ViewBag.Error != "")
             {
                 <p style="color: red">@ViewBag.Error</p>

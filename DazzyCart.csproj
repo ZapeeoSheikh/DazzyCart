@@ -132,6 +132,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207232004439_t1.cs" />
+    <Compile Include="Migrations\202207232004439_t1.designer.cs">
+      <DependentUpon>202207232004439_t1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DazzyCartContext.cs" />
     <Compile Include="Models\Products.cs" />
     <Compile Include="Models\User.cs" />
@@ -157,6 +162,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202207232004439_t1.resx">
+      <DependentUpon>202207232004439_t1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
