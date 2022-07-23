@@ -1,0 +1,37 @@
+﻿body {
+    padding: 0px;
+    margin: 0px;
+}
+
+a {
+    color: white;
+}
+
+    a:hover {
+        color: #FAB811;
+    }
+
+.glyphicon:hover {
+    color: #FF3D00;
+}
+
+a .fas .fa-user-circle {
+    padding-right: 30px;
+}
+
+.btn-success {
+    background-color: #FAB811 !important;
+}
+
+.btn-primary {
+    background-color: #FF3D00 !important;
+}
+
+.navbar {
+    border-radius: 0px;
+    background-color: #BA9157;
+}
+
+    .navbar .navbar-brand {
+        color: white;
+    }
