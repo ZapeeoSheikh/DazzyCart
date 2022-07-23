@@ -17,7 +17,15 @@ namespace DazzyCart.Controllers
         {
             return View();
         }
-        public ActionResult Product()
+        public ActionResult LoginPage()
+        {
+            return View();
+        }
+        public ActionResult Signup()
+        {
+            return View();
+        }
+        public ActionResult Form()
         {
             return View();
         }

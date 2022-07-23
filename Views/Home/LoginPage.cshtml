@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/style2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Login Form </title>
+
+</head>
+<body>
+<div class="container" id="container">
+    <div class="form-container log-in-container">
+        <form action="/Account/Form" method="post">
+            <h1 style="margin-top: 25px">Login</h1>
+            <div class="social-container" style="margin-bottom: 15px">
+                <a href="#" class="social"><i class="fa fa-facebook fa-2x"></i></a>
+                <a href="#" class="social"><i class="fab fa fa-twitter fa-2x"></i></a>
+            </div>
+            <span>or use your account</span>
+            <input type="email" placeholder="Email" name="email" style="margin-top: 5px"/>
+            <input type="password" placeholder="Password" name="password" />
+            @if (ViewBag.Error != "")
+            {
+                <p style="color: red">@ViewBag.Error</p>
+            }
+            <a href="#" style="margin-top: 0px">Forgot your password?</a>
+            <button type="submit">Log In</button>
+            <a href="\Account\Signup" style="font-size: 10px; font-weight: 400; text-decoration: underline; color: #FF4B2B">Sign up here</a>
+        </form>
+    </div>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-right">
+                <h2 style="margin-left:10px">Dazzy Cart</h2>
+                <p style="margin-left:10px">This e-commerce management System is made By Muhammad Rameez.</p>
+                <p style="margin-top: 10px; margin-left:10px">muhammadrmz871@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
