@@ -67,16 +67,16 @@ namespace DazzyCart.Controllers
         [HttpGet]
         public ActionResult Form()
         {
-            List<Products> products = db.products.ToList();
-            return View(products);
+            List<Products> product = db.products.ToList();
+            return View(product);
         }
         [HttpPost]
-        public ActionResult Form(Products products, HttpPostedFileBase file)
+        public ActionResult Form(Products product, HttpPostedFileBase file)
         {
             string filename = DateTime.UtcNow.Ticks + ".jpg";
             file.SaveAs(Server.MapPath("~/dbImage/") + filename);
-            products.Image = filename;
-            db.products.Add(products);
+            product.Image = filename;
+            db.products.Add(product);
             db.SaveChanges();
             return Redirect("/Home/Index");
         }
