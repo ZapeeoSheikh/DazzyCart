@@ -14,19 +14,22 @@ namespace DazzyCart.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Products> products = new List<Products>();
+            List<Products> products = db.products.ToList();
             return View(products);
         }
-        //[HttpPost]
-        //public ActionResult Index(Products products)
-        //{
-        //    db.products.Add(products);
-        //    db.SaveChanges();
-        //    return Redirect("/Home/Login");
-        //}
+        [HttpPost]
+        public ActionResult Index(Products products, HttpPostedFileBase file)
+        {
+            string filename = DateTime.UtcNow.Ticks + ".jpg";
+            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            products.Image = filename;
+            db.products.Add(products);
+            db.SaveChanges();
+            return Redirect("/Home/Index");
+        }
         public ActionResult ProductDetails(int Id)
         {
-            Products products = db.products.Where(x => x.Id == Id).FirstOrDefault();
+            Products products = db.products.FirstOrDefault(o => o.Id == Id);
             return View(products);
         }
         [HttpGet]
@@ -79,14 +82,21 @@ namespace DazzyCart.Controllers
         //    return View(product);
         //}
         //[HttpPost]
-        public ActionResult Form(Products product)
+        public ActionResult Form(User user)
         {
             //string filename = DateTime.UtcNow.Ticks + ".jpg";
             //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
             //product.Image = filename;
-            db.products.Add(product);
-            db.SaveChanges();
-            return Redirect("/Home/Index");
+            //db.products.Add(product);
+            //db.SaveChanges();
+
+            //User dbuser = db.user.Where(m => m.Email == user.Email && m.Password == user.Password).FirstOrDefault();
+            //if (dbuser != null)
+            //{
+            return View();
+            //}
+            //return Redirect("/Home/Index");
+
         }
 
     }
