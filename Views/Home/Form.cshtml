@@ -6,7 +6,7 @@
 <div style="margin-top: 40px;">
 </div>
 <div class="panel panel-primary col-lg-push-4 col-lg-3">
-    <h2 class="panel-heading">Add Products </h2>
+    <h2 class="panel-heading" style="background-color: #BA9157">Add Products </h2>
     <div class="panel-body " style="display: flex; justify-content: center">
         <form action="/Home/Form" method="post">
             <input type="hidden" name="Id"  />
@@ -27,13 +27,13 @@
                 <label for="price">Product Price :</label>
                 <input type="number" class="form-control" id="price" name="Price">
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label for="pwd">Product Image :</label>
                 <input type="file" class="form-control" accept="image/png , image/gif, image/jpeg" id="pwd" name="file">
-            </div>
+            </div>*@
             
 
-            <button type="submit" class="btn btn-success">Add Now</button>
+            <button type="submit" class="btn btn-warning" style="background-color: #BA9157">Add Now</button>
         </form>
     </div>
 </div>

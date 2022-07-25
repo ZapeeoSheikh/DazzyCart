@@ -10,11 +10,19 @@ namespace DazzyCart.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        private DazzyCartContext db = new DazzyCartContext();
+        DazzyCartContext db = new DazzyCartContext();
+        [HttpGet]
         public ActionResult Index()
         {
             List<Products> products = new List<Products>();
-            return View();
+            return View(products);
+        }
+        [HttpPost]
+        public ActionResult Index(Products products)
+        {
+            db.products.Add(products);
+            db.SaveChanges();
+            return Redirect("/Home/Login");
         }
         public ActionResult ProductDetails(int Id)
         {
@@ -73,9 +81,9 @@ namespace DazzyCart.Controllers
         [HttpPost]
         public ActionResult Form(Products product, HttpPostedFileBase file)
         {
-            string filename = DateTime.UtcNow.Ticks + ".jpg";
-            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
-            product.Image = filename;
+            //string filename = DateTime.UtcNow.Ticks + ".jpg";
+            //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            //product.Image = filename;
             db.products.Add(product);
             db.SaveChanges();
             return Redirect("/Home/Index");

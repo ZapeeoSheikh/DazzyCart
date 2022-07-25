@@ -33,8 +33,9 @@ a .fas .fa-user-circle {
 }
 
 .panel-primary {
-    background-color: #BA9157 !important;
+    color: #BA9157 !important;
 }
+
 
 .navbar .navbar-brand {
     color: white;
