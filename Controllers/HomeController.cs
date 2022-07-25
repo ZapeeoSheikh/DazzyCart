@@ -17,13 +17,13 @@ namespace DazzyCart.Controllers
             List<Products> products = new List<Products>();
             return View(products);
         }
-        [HttpPost]
-        public ActionResult Index(Products products)
-        {
-            db.products.Add(products);
-            db.SaveChanges();
-            return Redirect("/Home/Login");
-        }
+        //[HttpPost]
+        //public ActionResult Index(Products products)
+        //{
+        //    db.products.Add(products);
+        //    db.SaveChanges();
+        //    return Redirect("/Home/Login");
+        //}
         public ActionResult ProductDetails(int Id)
         {
             Products products = db.products.Where(x => x.Id == Id).FirstOrDefault();
@@ -72,14 +72,14 @@ namespace DazzyCart.Controllers
             Response.Cookies.Add(myCookie);
             return Redirect("/Home/Login");
         }
-        [HttpGet]
-        public ActionResult Form()
-        {
-            List<Products> product = db.products.ToList();
-            return View(product);
-        }
-        [HttpPost]
-        public ActionResult Form(Products product, HttpPostedFileBase file)
+        //[HttpGet]
+        //public ActionResult Form()
+        //{
+        //    List<Products> product = db.products.ToList();
+        //    return View(product);
+        //}
+        //[HttpPost]
+        public ActionResult Form(Products product)
         {
             //string filename = DateTime.UtcNow.Ticks + ".jpg";
             //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
