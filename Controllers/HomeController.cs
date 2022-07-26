@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DazzyCart.Models;
 
 namespace DazzyCart.Controllers
@@ -20,9 +21,9 @@ namespace DazzyCart.Controllers
         [HttpPost]
         public ActionResult Index(Products products, HttpPostedFileBase file)
         {
-            string filename = DateTime.UtcNow.Ticks + ".jpg";
-            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
-            products.Image = filename;
+            //string filename = DateTime.UtcNow.Ticks + ".jpg";
+            //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            //products.Image = filename;
             db.products.Add(products);
             db.SaveChanges();
             return Redirect("/Home/Index");
@@ -46,6 +47,7 @@ namespace DazzyCart.Controllers
                 ViewBag.Error = "Your email or password is incorrect";
                 return View();
             }
+            FormsAuthentication.SetAuthCookie(user.Email, false);
             HttpCookie mycookie = new HttpCookie("userCookie");
             mycookie.Value = dbuser.AccessToken;
             mycookie.Expires = DateTime.UtcNow.AddDays(5).AddHours(5);
@@ -82,6 +84,7 @@ namespace DazzyCart.Controllers
         //    return View(product);
         //}
         //[HttpPost]
+        [Authorize]
         public ActionResult Form(User user)
         {
             //string filename = DateTime.UtcNow.Ticks + ".jpg";

@@ -65,9 +65,9 @@
     @* Cards Start here *@
 
     <div class="col-lg-12">
-        @foreach(var i in Model)
+        @*@foreach(var i in Model)
         {
-            <div class="col-lg-2" style="background-color: #b1cbe7; border: 2px solid #0A837F; border-radius: 10px; box-shadow: 2px 5px 12px #888888; margin: 20px 20px; padding-bottom: 20px;">
+            <div class="col-lg-3" style="background-color: #b1cbe7; border: 2px solid #0A837F; border-radius: 10px; box-shadow: 2px 5px 12px #888888; margin: 20px 20px; padding-bottom: 20px;">
                 <img src="~/Images/cart.png" height="150px" width="auto"/> <hr/>
                 <h3 style="color: black; font-family: sans-serif; font-size: 20px; font-weight: bold; padding-bottom: 20px; padding-top: 20px;">@i.Name</h3>
                 <a href="\Home\ProductDetails\@i.Id" class="btn btn-success" style="float: left"> Details <span class="glyphicon glyphicon-info-sign"></span></a>
@@ -77,21 +77,54 @@
                 </a>
 
             </div>
-        }
+        }*@
 
+        
+        
+        
 
+        
+    @foreach (var i in Model)
+    {
 
-        <div class="col-lg-2" style="background-color: #b1cbe7; border-radius: 10px; border: 2px solid #0A837F; margin: 20px 20px; padding-bottom: 20px; ">
-            <img src="~/Images/cart.png" height="150px" width="auto"/> <hr/>
-            <h3 style="padding-top: 20px;padding-bottom: 20px; font-weight: bold; color: black; font-size: 20px; font-family: sans-serif">HeadPhones RTX 345 Geophone</h3>
-            <a href="" class="btn btn-success glyphicon glyphicon-info-sign" style="float: left"> Details </a>
-            <a href="" class="btn btn-primary" style="float: right; border-radius: 20px">
-                More Info
-                <img src="~/Images/OLX.png" height="10px"/>
-            </a>
+        <div class="item  col-xs-4 col-md-3">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="http://res.cloudinary.com/dnhwxgf8i/image/upload/c_scale,h_250,w_400/v1488011915/mockup3_kxxwfy.jpg" alt=""/>
+                <div class="category">
+                    <h5 class="category-name">Devices</h5>
+                </div>
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading" style="font-weight: bolder">
+                        @i.Name</h4>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead" style="font-family: cursive">
+                                @i.Price Rs</p>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-success" href="@i.Url">More Info </a>
+                        </div>
+                            <a class="btn btn-primary" href="\Home\ProductDetails\@i.Id">Details</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
+    }
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
+        
+        
+        
+        
 
 
     </div>
