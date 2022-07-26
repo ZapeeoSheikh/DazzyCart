@@ -124,6 +124,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Style1.css" />
     <Content Include="style2.css" />
+    <Content Include="style3.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +136,10 @@
     <Compile Include="Migrations\202207232004439_t1.cs" />
     <Compile Include="Migrations\202207232004439_t1.designer.cs">
       <DependentUpon>202207232004439_t1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207262048264_t2.cs" />
+    <Compile Include="Migrations\202207262048264_t2.designer.cs">
+      <DependentUpon>202207262048264_t2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DazzyCartContext.cs" />
@@ -167,6 +172,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202207232004439_t1.resx">
       <DependentUpon>202207232004439_t1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207262048264_t2.resx">
+      <DependentUpon>202207262048264_t2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
