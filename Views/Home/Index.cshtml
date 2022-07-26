@@ -65,31 +65,17 @@
     @* Cards Start here *@
 
     <div class="col-lg-12">
-        @*@foreach(var i in Model)
-        {
-            <div class="col-lg-3" style="background-color: #b1cbe7; border: 2px solid #0A837F; border-radius: 10px; box-shadow: 2px 5px 12px #888888; margin: 20px 20px; padding-bottom: 20px;">
-                <img src="~/Images/cart.png" height="150px" width="auto"/> <hr/>
-                <h3 style="color: black; font-family: sans-serif; font-size: 20px; font-weight: bold; padding-bottom: 20px; padding-top: 20px;">@i.Name</h3>
-                <a href="\Home\ProductDetails\@i.Id" class="btn btn-success" style="float: left"> Details <span class="glyphicon glyphicon-info-sign"></span></a>
-                <a href="@i.Url" class="btn btn-primary" style="float: right;">
-                    More Info
-                    <img src="~/Images/OLX.png" height="10px"/>
-                </a>
 
-            </div>
-        }*@
 
-        
-        
-        
 
-        
-    @foreach (var i in Model)
+
+
+        @foreach (var i in Model)
     {
 
         <div class="item  col-xs-4 col-md-3">
             <div class="thumbnail">
-                <img class="group list-group-image" src="http://res.cloudinary.com/dnhwxgf8i/image/upload/c_scale,h_250,w_400/v1488011915/mockup3_kxxwfy.jpg" alt=""/>
+                <img class="group list-group-image" src="~/dbImage/@i.Image" alt=""/>
                 <div class="category">
                     <h5 class="category-name">Devices</h5>
                 </div>

@@ -21,9 +21,9 @@ namespace DazzyCart.Controllers
         [HttpPost]
         public ActionResult Index(Products products, HttpPostedFileBase file)
         {
-            //string filename = DateTime.UtcNow.Ticks + ".jpg";
-            //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
-            //products.Image = filename;
+            string filename = DateTime.UtcNow.Ticks + ".jpg";
+            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            products.Image = filename;
             db.products.Add(products);
             db.SaveChanges();
             return Redirect("/Home/Index");

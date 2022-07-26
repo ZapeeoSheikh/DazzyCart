@@ -4,12 +4,25 @@
     ViewBag.Title = "ProductDetails";
 }
 
-<h2>ProductDetails</h2>
-<h2>@Model.Id</h2>
-<h2>@Model.Name</h2>
-<h2>@Model.Description</h2>
-<h2>@Model.Price</h2>
-<h2>@Model.Url</h2>
-<h2>@Model.Image</h2>
+<div style="margin-top: 30px" class="col-lg-12">
+    <div class="col-lg-push-1 col-lg-5" style="margin-top: 40px">
+        <img src="http://res.cloudinary.com/dnhwxgf8i/image/upload/c_scale,h_250,w_400/v1488011915/mockup3_kxxwfy.jpg"/>
+    </div>
+    <div class="col-lg-6">
+        <h1 style="font-family: fantasy">ProductDetails</h1>
+
+        <h3 style="font-family: cursive"><a href="@Model.Url" style="color: #FAB811">More Information on OLX</a> </h3>
+        <h3 style="font-family: cursive">Product Name: &nbsp; <span style="font-family: 'Lora', sans-serif; font-size: 35px; color: #285584; font-weight: bolder">@Model.Name</span></h3>
+        <h3 style="font-family: cursive">Product Price: &nbsp; <span style="font-family: 'Lora', sans-serif; font-size: 35px; color: #285584; font-weight: bolder">@Model.Price Rs</span></h3>
+        <h3 style="font-family: cursive">Product Description: <i class='fas fa-level-down-alt'></i></h3>
+       
+    </div>
 
 
+
+</div>
+<div class="col-lg-push-1 col-lg-10" style="margin-top: 30px">
+    <span style="font-family: 'Lora', sans-serif; font-size: 25px; color: #285584; font-weight: bold">
+    @Model.Description
+        </span>
+</div>
