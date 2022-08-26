@@ -23,6 +23,7 @@ namespace DazzyCart.Controllers
         {
             string filename = DateTime.UtcNow.Ticks + ".jpg";
             file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            //file.SaveAs("h:\\root\\home\\zapeeosheikh-001\\www\\DazzyCart\\dbImage\\" + filename);
             products.Image = filename;
             db.products.Add(products);
             db.SaveChanges();
