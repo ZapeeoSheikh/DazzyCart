@@ -55,10 +55,10 @@
     <h5 style="color: #F73B00; float: right; font-family: cursive; font-weight: bold;">@DateTime.Now.ToString("hh:mm tt")</h5>
 </div>
 <br/>
-<div class="maincard col-lg-12" style="background-color: aliceblue; margin-top: 10px; padding-bottom: 20px; padding-left: 0px; padding-right: 0px; padding-top: 20px;">
+<div class="maincard col-lg-12 col-md-12 col-xs-12 col-sm-12" style="background-color: aliceblue; margin-top: 10px; padding-bottom: 20px; padding-left: 0px; padding-right: 0px; padding-top: 20px;">
     <div class="maintext " style="margin-bottom: 30px; margin-left: 30px;">
         <h1 style="font-family: cursive; font-weight: bold">The Things</h1>
-        <h2 style="color: #285584; font-family: cursive; font-weight: bold">you want to buy</h2>
+        <h2 style="color: #285584; font-family: cursive; font-weight: bold">you wanted to buy</h2>
     </div>
 
 
@@ -73,7 +73,7 @@
         @foreach (var i in Model)
     {
 
-        <div class="item  col-xs-4 col-md-3">
+        <div class="item  col-xs-12 col-md-4 col-lg-3 col-sm-6">
             <div class="thumbnail" >
                 <img class="group list-group-image" src="~/dbImage/@i.Image" alt="" style="border-bottom: 2px solid #285584; height: 240px"/>
                 <div class="category">
@@ -87,11 +87,13 @@
                             <p class="lead" style="font-family:monospace">
                                 @i.Price Rs</p>
                         </div>
-                        <div class="btn-group">
-                            <a class="btn btn-success" href="@i.Url">Get Link </a>
-                        </div>
-                            <a class="btn btn-primary" href="\Home\ProductDetails\@i.Id">Details</a>
                     </div>
+                        <div class="btn-group" style="display: flex; justify-content: center">
+                            <a class="btn btn-success" href="@i.Url">Get Link </a>
+
+                            <a class="btn btn-primary" href="\Home\ProductDetails\@i.Id">Details</a>
+                        </div>
+                    
                 </div>
             </div>
         </div>
