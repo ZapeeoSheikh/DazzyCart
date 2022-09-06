@@ -21,8 +21,10 @@ namespace DazzyCart.Controllers
         [HttpPost]
         public ActionResult Index(Products products, HttpPostedFileBase file)
         {
+            String domain = "http://zapeeosheikh-001-site1.btempurl.com/";
             string filename = DateTime.UtcNow.Ticks + ".jpg";
-            file.SaveAs(Server.MapPath("~/dbImage/") + filename);
+            file.SaveAs(domain + "/zapeeosheikh-001/www/dazzycart/dbimages/" + filename);
+            //file.SaveAs(Server.MapPath("~/dbImage/") + filename);
             //file.SaveAs("h:\\root\\home\\zapeeosheikh-001\\www\\DazzyCart\\dbImage\\" + filename);
             products.Image = filename;
             db.products.Add(products);

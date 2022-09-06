@@ -1,5 +1,4 @@
-﻿@using DazzyCart.Models
-@model List<Products> 
+﻿@model List<DazzyCart.Models.Products> 
 @{
     ViewBag.Title = "Index";
 }
@@ -49,7 +48,7 @@
         </a>
     </div>
 </div>
-<div class="mtime" style="margin: 0px 30px">
+<div class="mtime" style="margin: 0px 20px">
     <h5 style="color: #285584; float: left; font-size: 15px; font-weight: bold;">@DateTime.Now.ToString("dddd, dd MMMM yyyy")</h5>
     <h5 style="color: #285584; float: right; font-size: 15px; font-weight: bold;">@DateTime.Now.ToString("hh:mm tt")</h5>
 </div>
@@ -63,35 +62,46 @@
 
     @* Cards Start here *@
     <div class="col-lg-12">
-  @foreach (var i in Model)
-    {
+        @foreach (var i in Model)
+        {
+            <div class="item  col-xs-12 col-md-4 col-lg-3 col-sm-6">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="~/dbImage/@i.Image" alt="" style="height: 240px"/>
+                    <div class="category">
+                        <h5 class="category-name">Devices</h5>
+                    </div>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading" style="font-size: 18px; font-weight: bolder;">
+                            @i.Name
+                        </h4>
+                        
+                         <p class="group inner list-group-item-heading" style="font-size: 14px; padding-left: 5px;padding-right: 5px;">
+                           This Product is currently available. You can Place the Order by clicking the Whatsapp Icon. 
+                        </p>
+                        
+                        
+                        <div class="row" style="margin-top: 20px; display: flex; justify-content: center">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead" style="">
+                                    <i class="fa fa-money"></i>  @i.Price Rs
+                                </p>
+                            </div>
+                        </div>
 
-        <div class="item  col-xs-12 col-md-4 col-lg-3 col-sm-6">
-            <div class="thumbnail" >
-                <img class="group list-group-image" src="~/dbImage/@i.Image" alt="" style=" height: 240px"/>
-                <div class="category">
-                    <h5 class="category-name">Devices</h5>
-                </div>
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading" style="font-weight: bolder; font-size: 20px">
-                        @i.Name</h4>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-6">
-                            <p class="lead" style="">
-                                @i.Price Rs</p>
+                       
+                        
+                        <div class="" style="float: right; height: 30px; width: 30px">
+                            <a href="https://wa.me/923244812756?text=Hi%20M%20Rameez%20!%20I%20have%20came%20from%20Dazzy%20Cart%20and%20I%20want%20to%20purchase%20from%20your%20store."> <img src="~/Images/WhatsApp.png" height="30px" /></a>
+                        </div>
+                        <div class="btn-group" style="display: flex; justify-content: center">
+                            <a class="btn btn-success" href="@i.Url">Get Link <i class="fa fa-link"></i></a>
+
+                            <a class="btn btn-primary" href="\Home\ProductDetails\@i.Id">Details <i class="fa fa-caret-down"></i></a>
                         </div>
                     </div>
-                        <div class="btn-group" style="display: flex; justify-content: center">
-                            <a class="btn btn-success" href="@i.Url">Get Link </a>
-
-                            <a class="btn btn-primary" href="\Home\ProductDetails\@i.Id">Details</a>
-                        </div>
-                    
                 </div>
             </div>
-        </div>
-
-    }
+        }
     </div>
     <div class="col-xs-12 col-md-12 col-lg-12 col-sm-12">
         <footer style="margin-top: 20px;">

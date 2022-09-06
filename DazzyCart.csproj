@@ -118,6 +118,7 @@
     <Content Include="Images\5.png" />
     <Content Include="Images\cart.png" />
     <Content Include="Images\OLX.png" />
+    <Content Include="Images\WhatsApp.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
